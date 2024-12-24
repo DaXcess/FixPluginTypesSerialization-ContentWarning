@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using System.Text;
-using FixPluginTypesSerialization.Util;
 using MonoMod.RuntimeDetour;
 
 namespace FixPluginTypesSerialization.Patchers
 {
-    internal unsafe class IsAssemblyCreated : Patcher
+    internal unsafe class IsAssemblyCreated
     {
         [UnmanagedFunctionPointer(CallingConvention.StdCall)]
         private delegate bool IsAssemblyCreatedDelegate(IntPtr _monoManager, int index);
@@ -17,14 +15,9 @@ namespace FixPluginTypesSerialization.Patchers
 
         internal static bool IsApplied { get; private set; }
 
-        protected override BytePattern[] PdbPatterns { get; } =
-        {
-            Encoding.ASCII.GetBytes(nameof(IsAssemblyCreated) + "@MonoManager"),
-        };
-
         internal static int VanillaAssemblyCount;
 
-        protected override unsafe void Apply(IntPtr from)
+        public unsafe void Apply(IntPtr from)
         {
             var hookPtr =
                 Marshal.GetFunctionPointerForDelegate(new IsAssemblyCreatedDelegate(OnIsAssemblyCreated));

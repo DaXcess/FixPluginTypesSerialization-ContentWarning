@@ -2,21 +2,11 @@
 using FixPluginTypesSerialization.Util;
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 
 namespace FixPluginTypesSerialization.UnityPlayer.Structs.v2021.v1
 {
-    [ApplicableToUnityVersionsSince("2021.1.0")]
-    public class MonoManager : IMonoManager
+    public class MonoManager
     {
-        public MonoManager()
-        {
-        }
-
-        public MonoManager(IntPtr pointer)
-        {
-        }
-
         public IntPtr Pointer { get => CommonUnityFunctions.ScriptingAssemblies; set { } }
 
         private unsafe RuntimeStatic<ScriptingAssemblies>* _this => (RuntimeStatic<ScriptingAssemblies>*)Pointer;

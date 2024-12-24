@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using System.Text;
-using FixPluginTypesSerialization.Util;
 using MonoMod.RuntimeDetour;
 
 namespace FixPluginTypesSerialization.Patchers
 {
-    internal unsafe class ScriptingManagerDeconstructor : Patcher
+    internal unsafe class ScriptingManagerDeconstructor
     {
         [UnmanagedFunctionPointer(CallingConvention.FastCall)]
         private delegate void ScriptingManagerDeconstructorDelegate(IntPtr scriptingManagerPtr);
@@ -16,12 +14,7 @@ namespace FixPluginTypesSerialization.Patchers
 
         internal static bool IsApplied { get; private set; }
 
-        protected override BytePattern[] PdbPatterns { get; } =
-        {
-            Encoding.ASCII.GetBytes("?1ScriptingManager@"),
-        };
-
-        protected override unsafe void Apply(IntPtr from)
+        public unsafe void Apply(IntPtr from)
         {
             ApplyDetour(from);
             IsApplied = true;
