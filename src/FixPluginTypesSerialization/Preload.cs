@@ -13,7 +13,7 @@ namespace FixPluginTypesSerialization
     public static class Preload
     {
         #region CW 1.19.e
-
+        
         public const int LabelMemStringId = 0x49;
         public const long MonoManagerAwakeFromLoadOffset = 0x7819E0;
         public const long MonoManagerIsAssemblyCreatedOffset = 0x781800;
@@ -22,6 +22,7 @@ namespace FixPluginTypesSerialization
         public const long FreeAllocInternalOffset = 0x656E20;
         public const long MallocInternalOffset = 0x359EA0;
         public const long ScriptingAssembliesOffset = 0x1C0CA40;
+        public const long UnityLogPointer = 0x26e30;
         
         #endregion
         
@@ -47,6 +48,8 @@ namespace FixPluginTypesSerialization
 
         public static void PreloadInit()
         {
+            Log.Init();
+            
             try
             {
                 InitializeInternal();
@@ -66,6 +69,8 @@ namespace FixPluginTypesSerialization
 
         private static void PopulatePluginPaths()
         {
+            Log.Info("Searching for plugins...");
+            
             var result = new List<string>();
 
             // 1. Local Plugins
@@ -73,6 +78,8 @@ namespace FixPluginTypesSerialization
                 .Where(IsNetAssembly));
                 
             // 2. Subscribed Plugins
+            
+            // TODO: Remove this once preloader order has been fixed
             SteamAPI.Init();
             
             var count = SteamUGC.GetNumSubscribedItems();
@@ -89,12 +96,12 @@ namespace FixPluginTypesSerialization
             }
 
             PluginPaths = result;
+            
+            Log.Info($"Found {PluginPaths.Count} path{(PluginPaths.Count == 1 ? "" : "s")}");
         }
 
         private static unsafe void DetourUnityPlayer()
         {
-            var unityDllPath = Path.Combine(GameRoot, "UnityPlayer.dll");
-
             static bool IsUnityPlayer(ProcessModule p)
             {
                 return p.ModuleName.ToLowerInvariant().Contains("unityplayer");
@@ -119,4 +126,10 @@ namespace FixPluginTypesSerialization
                                                                 ScriptingManagerDeconstructorOffset));
         }
     }
+}
+
+// Make the mod show up in the mod list
+[ContentWarningPlugin("FixPluginTypesSerialization", "1.0.0", true)]
+internal class Plugin
+{
 }
