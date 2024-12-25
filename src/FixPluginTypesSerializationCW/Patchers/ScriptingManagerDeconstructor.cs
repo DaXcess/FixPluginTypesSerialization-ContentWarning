@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using MonoMod.RuntimeDetour;
 
-namespace FixPluginTypesSerialization.Patchers
+namespace FixPluginTypesSerializationCW.Patchers
 {
     internal unsafe class ScriptingManagerDeconstructor
     {

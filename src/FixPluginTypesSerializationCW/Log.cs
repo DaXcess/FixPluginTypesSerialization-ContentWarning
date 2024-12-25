@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace FixPluginTypesSerialization
+namespace FixPluginTypesSerializationCW
 {
     internal static class Log
     {
@@ -26,15 +26,15 @@ namespace FixPluginTypesSerialization
         }
 
         internal static void Error(object data) => nativeLog(UnityLogType.kUnityLogTypeError,
-            $"[FixPluginTypesSerialization] {data}",
-            "FixPluginTypesSerialization", 1);
+            $"[FixPluginTypesSerializationCW] {data}",
+            "FixPluginTypesSerializationCW", 1);
 
         internal static void Info(object data) =>
-            nativeLog(UnityLogType.kUnityLogTypeLog, $"[FixPluginTypesSerialization] {data}",
-                "FixPluginTypesSerialization", 1);
+            nativeLog(UnityLogType.kUnityLogTypeLog, $"[FixPluginTypesSerializationCW] {data}",
+                "FixPluginTypesSerializationCW", 1);
 
         internal static void Warning(object data) => nativeLog(UnityLogType.kUnityLogTypeWarning,
-            $"[FixPluginTypesSerialization] {data}",
-            "FixPluginTypesSerialization", 1);
+            $"[FixPluginTypesSerializationCW] {data}",
+            "FixPluginTypesSerializationCW", 1);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace FixPluginTypesSerialization.UnityPlayer.Structs.Default
+namespace FixPluginTypesSerializationCW.UnityPlayer.Structs.Default
 {
     [StructLayout(LayoutKind.Sequential, Pack = 8)]
     public struct StringStorageDefaultV2

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace FixPluginTypesSerialization.Util
+namespace FixPluginTypesSerializationCW.Util
 {
     internal class CommonUnityFunctions
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FixPluginTypesSerialization.Util
+namespace FixPluginTypesSerializationCW.Util
 {
     internal static class DictionaryExtensions
     {

@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using FixPluginTypesSerialization.Patchers;
-using FixPluginTypesSerialization.Util;
+using FixPluginTypesSerializationCW.Patchers;
+using FixPluginTypesSerializationCW.Util;
 using Steamworks;
 
-namespace FixPluginTypesSerialization
+namespace FixPluginTypesSerializationCW
 {
     public static class Preload
     {
@@ -129,7 +129,7 @@ namespace FixPluginTypesSerialization
 }
 
 // Make the mod show up in the mod list
-[ContentWarningPlugin("FixPluginTypesSerialization", "1.0.0", true)]
+[ContentWarningPlugin("FixPluginTypesSerializationCW", "1.0.0", true)]
 internal class Plugin
 {
 }

@@ -1,4 +1,4 @@
-﻿namespace FixPluginTypesSerialization.UnityPlayer.Structs.Default
+﻿namespace FixPluginTypesSerializationCW.UnityPlayer.Structs.Default
 {
     public struct ScriptingAssemblies
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
-using FixPluginTypesSerialization.UnityPlayer.Structs.Default;
+using FixPluginTypesSerializationCW.UnityPlayer.Structs.Default;
 
-namespace FixPluginTypesSerialization.Util
+namespace FixPluginTypesSerializationCW.Util
 {
     internal static class MonoManagerCommon
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace FixPluginTypesSerialization
+namespace FixPluginTypesSerializationCW
 {
     public static class Native
     {

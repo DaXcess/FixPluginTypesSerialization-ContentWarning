@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using FixPluginTypesSerialization.UnityPlayer.Structs.v2021.v1;
+using FixPluginTypesSerializationCW.UnityPlayer.Structs.v2021.v1;
 using MonoMod.RuntimeDetour;
 
-namespace FixPluginTypesSerialization.Patchers
+namespace FixPluginTypesSerializationCW.Patchers
 {
     internal unsafe class AwakeFromLoad
     {

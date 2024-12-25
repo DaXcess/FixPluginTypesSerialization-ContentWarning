@@ -1,11 +1,11 @@
-﻿using FixPluginTypesSerialization.Patchers;
-using FixPluginTypesSerialization.UnityPlayer.Structs.Default;
-using FixPluginTypesSerialization.Util;
+﻿using FixPluginTypesSerializationCW.Patchers;
+using FixPluginTypesSerializationCW.UnityPlayer.Structs.Default;
+using FixPluginTypesSerializationCW.Util;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace FixPluginTypesSerialization.UnityPlayer.Structs.v2021.v1
+namespace FixPluginTypesSerializationCW.UnityPlayer.Structs.v2021.v1
 {
     public class AbsolutePathString(IntPtr pointer)
     {

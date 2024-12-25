@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace FixPluginTypesSerialization.UnityPlayer.Structs.Default
+namespace FixPluginTypesSerializationCW.UnityPlayer.Structs.Default
 {
     // struct dynamic_array_detail::dynamic_array_data
     [StructLayout(LayoutKind.Sequential, Pack = 8)]

@@ -1,9 +1,9 @@
-﻿using FixPluginTypesSerialization.UnityPlayer.Structs.Default;
-using FixPluginTypesSerialization.Util;
+﻿using FixPluginTypesSerializationCW.UnityPlayer.Structs.Default;
+using FixPluginTypesSerializationCW.Util;
 using System;
 using System.Collections.Generic;
 
-namespace FixPluginTypesSerialization.UnityPlayer.Structs.v2021.v1
+namespace FixPluginTypesSerializationCW.UnityPlayer.Structs.v2021.v1
 {
     public class MonoManager
     {

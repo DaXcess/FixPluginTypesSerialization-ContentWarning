@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FixPluginTypesSerialization.UnityPlayer.Structs.Default
+namespace FixPluginTypesSerializationCW.UnityPlayer.Structs.Default
 {
     public unsafe struct RuntimeStatic<T> where T : struct
     {
