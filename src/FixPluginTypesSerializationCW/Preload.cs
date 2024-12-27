@@ -74,9 +74,16 @@ namespace FixPluginTypesSerializationCW
             var result = new List<string>();
 
             // 1. Local Plugins
-            result.AddRange(Directory.GetFiles(LocalPluginsPath, "*.dll", SearchOption.AllDirectories)
-                .Where(IsNetAssembly));
-                
+            try
+            {
+                result.AddRange(Directory.GetFiles(LocalPluginsPath, "*.dll", SearchOption.AllDirectories)
+                    .Where(IsNetAssembly));
+            }
+            catch
+            {
+                // ignored
+            }    
+            
             // 2. Subscribed Plugins
             
             // TODO: Remove this once preloader order has been fixed
@@ -88,11 +95,18 @@ namespace FixPluginTypesSerializationCW
 
             foreach (var fileId in publishedFiles)
             {
-                if (!SteamUGC.GetItemInstallInfo(fileId, out _, out var directory, 2048, out _))
-                    continue;
+                try
+                {
+                    if (!SteamUGC.GetItemInstallInfo(fileId, out _, out var directory, 2048, out _))
+                        continue;
 
-                result.AddRange(Directory.GetFiles(directory, "*.dll", SearchOption.AllDirectories)
-                    .Where(IsNetAssembly));
+                    result.AddRange(Directory.GetFiles(directory, "*.dll", SearchOption.AllDirectories)
+                        .Where(IsNetAssembly));
+                }
+                catch
+                {
+                    // ignored
+                }
             }
 
             PluginPaths = result;
@@ -129,7 +143,7 @@ namespace FixPluginTypesSerializationCW
 }
 
 // Make the mod show up in the mod list
-[ContentWarningPlugin("FixPluginTypesSerializationCW", "1.0.0", true)]
+[ContentWarningPlugin("FixPluginTypesSerializationCW", "1.0.2", true)]
 internal class Plugin
 {
 }
